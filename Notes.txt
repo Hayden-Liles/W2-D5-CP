@@ -108,7 +108,7 @@ UPGRADES SECTION{
     lvl 61-70 = +20000
       CPL = +800000
     lvl 71-ing = +30000
-      CPL = +1,500000
+      CPL = +1,500,000
   }
 
 
