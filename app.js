@@ -219,6 +219,10 @@ let upgradesOwnedElem = document.querySelector("#upgrades-owned")
 let handUpgrade = document.querySelector("#hand-upg")
 let ovenMittUpgrade = document.querySelector("#oven-mitt-upg")
 let microwaveUpgrade = document.querySelector("#microwave-upg")
+let grandmaUpgrade = document.querySelector("#grandma-upg")
+let ovenUpgrade = document.querySelector("#oven-upg")
+let foodTruckUpgrade = document.querySelector("#food-truck-upg")
+let factoryUpgrade = document.querySelector("#factory-upg")
 // SECTION game mechanical variables
 let manualClicksMultiplier = 1
 let manualClicks = 1
@@ -305,8 +309,28 @@ function checkUpgrade(upgrade, upgradeElem){
 
 // SECTION EVENT LISTENERS
 cupcakeElem.addEventListener("click", clickCupcake)
-microwaveUpgrade.addEventListener("click", function(){
+// STUB for the manual click upgrades
+handUpgrade.addEventListener("click", function(){ //STUB - HAND
+  checkUpgrade(handObj, handUpgrade)
+})
+ovenMittUpgrade.addEventListener("click", function(){ // STUB - OVEN MITT
+  checkUpgrade(ovenMittObj, ovenMittUpgrade)
+})
+// STUB for the automatic click upgrades
+microwaveUpgrade.addEventListener("click", function(){ // STUB - MICROWAVE
   checkUpgrade(microwaveObj, microwaveUpgrade)
+})
+grandmaUpgrade.addEventListener("click", function(){ // STUB - GRANDMA
+  checkUpgrade(grandmaObj, grandmaUpgrade)
+})
+ovenUpgrade.addEventListener("click", function(){ // STUB - OVEN
+  checkUpgrade(ovenObj, ovenUpgrade)
+})
+foodTruckUpgrade.addEventListener("click", function(){ // STUB - FOOD TRUCK
+  checkUpgrade(foodTruckObj, foodTruckUpgrade)
+})
+factoryUpgrade.addEventListener("click", function(){ // STUB - FACTORY
+  checkUpgrade(factoryObj, factoryUpgrade)
 })
 
 updateInfo()
