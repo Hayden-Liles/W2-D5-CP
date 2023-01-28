@@ -281,7 +281,7 @@ function clickCupcake(){
 
 function updateInfo(){
   cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
-  upgradesOwnedElem.innerText = `Upgrades owned: ${totalUpgrades}`
+  upgradesOwnedElem.innerText = `CP/s: ${automaticClicks}`
 }
 
 function checkUpgrade(upgrade, upgradeElem){
