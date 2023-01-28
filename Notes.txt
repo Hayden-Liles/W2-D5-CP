@@ -122,3 +122,17 @@ INFORMATION SECTION{
   - Handmade cupcakes       | How many cupcakes that they have made ONLY by clicking whether that +1 or +2 ect.
   - Upgrades owned          | How many upgrades that they have purchased no matter the upgrade
 }
+
+TRY ME
+
+[5, 15, 30] quantityCheck
+[40, 100, 500] costCheck
+
+if(obj.quanity == obj.quantityCheck[0]){
+  obj.costAddition = costCheck[0]
+  obj.quantityCheck.splice(0, 1)
+  obj.costCheck.splice(0, 1)
+  if(obj.quantityCheck.length == 0){
+    obj.quantityCheck.push(99999999999999999999999999999)
+  }
+}
