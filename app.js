@@ -1,18 +1,25 @@
 // STUB upgrades
 let pointerUpgrades = [
-  {name: "Hand", quantity: 0, cost: 200, costAddition: 200,
-   quanityCheck: [5, 15, 25, 40, 70],
-   costCheck: [1000, 2500, 5000, 10000, 15000]},
+  {name: "Hand", quantity: 0, clickCount: 1,cost: 200,
+  costAddition: 200, quanityCheck: [6, 16, 26, 41, 71],
+  costCheck: [1000, 2500, 5000, 10000, 15000],
+  clickCheck: [2, 5, 10, 50, 100]},
 
-  {name: "Oven Mitt", quantity: 0, cost: 200},
+  {name: "Oven Mitt", quantity: 0, clickMultiplier: .1, cost: 5000,costAddition: 5000,
+    quanityCheck: [6, 16, 26, 41, 71],
+    costCheck: [10000, 20000, 30000, 50000, 80000],
+    clickCheck: [.2, .3, .4, .5, .6]},
 ]
 
 let automaticUpgrades = [
-  {name: "Microwave", quantity: 0, cost: 40},
-  {name: "Grandma", quantity: 0, cost: 300},
-  {name: "Oven", quantity: 0, cost: 2000},
-  {name: "Food Truck", quantity: 0, cost: 5000},
-  {name: "Factory", quantity: 0, cost: 10000},
+  {name: "Microwave", quantity: 0, clickCount: 1, cost: 40, costAddition: 40, quanityCheck: [16, 31, 46, 61, 71],costCheck: [100, 500, 1500, 3000, 5000],clickCheck: [5, 15, 20, 50, 70]},
+  {name: "Grandma", quantity: 0, clickCount: 15, cost: 300, costAddition: 300,
+  quanityCheck: [11, 26, 36, 51, 71],
+  costCheck: [500, 1500, 3000, 5000, 10000],
+  clickCheck: [5, 15, 20, 50, 70]},
+  {name: "Oven", quantity: 0, clickCount: 50, cost: 2000, costAddition: 2000,},
+  {name: "Food Truck", quantity: 0, clickCount: 1000, cost: 5000, costAddition: 5000,},
+  {name: "Factory", quantity: 0, clickCount: 3000, cost: 10000, costAddition: 10000,},
 ]
 
 // SECTION element selectors

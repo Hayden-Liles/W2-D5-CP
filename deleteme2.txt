@@ -1,0 +1,43 @@
+  // {name: "Hand", quantity: 0, clickCount: 1,cost: 200,
+  // costAddition: 200, quanityCheck: [6, 16, 26, 41, 71],
+  // costCheck: [1000, 2500, 5000, 10000, 15000],
+  // clickCheck: [2, 5, 10, 50, 100]},
+
+
+HandQuantity    CostToBuyHand     cupcakePerClick
+1               200               2
+2               400               3
+3               600               4
+4               800               5
+5               1000              6
+6               1200              14
+7               2200              16
+8               3200              18
+9               4200              20
+10              5200              22
+
+1-5 Cost +200  CupCakePerClick +1
+6-15 Cost +1000 CupCakePerClick +2
+16-25 Cost +2500 CupCakePerClick +5
+
+var upgradeFormulaToUse = foobar.find( a => {
+  return a.minQuantity >= currentQuantity && a.maxQuantity <= currentQuantity;
+})
+
+var foobar = {
+  name: "Hand",
+  upgradeFormula: [
+    {
+      minQuantity: 1,
+      maxQuantity: 5,
+      costPerItem: 200,
+      cupcakePerClick: 1
+    },
+    {
+      minQuantity: 6,
+      maxQuantity: 15,
+      costPerItem: 1000,
+      cupcakePerClick: 2
+    }
+  ]
+}
