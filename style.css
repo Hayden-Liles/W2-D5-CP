@@ -41,13 +41,16 @@ p{
 }
 
 .upgrade-img{
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin: 1em;
+}
+.upgrade-img:active{
+  animation: shrink-grow .1s;
 }
 
 .mf{
-  font-size: .8em;
+  font-size: .65em;
 }
 
 /* SECTION MEDIA QUERY */
@@ -93,4 +96,24 @@ p{
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes shrink-grow {
+  5% { transform: scale(.9); }
+  10% { transform: scale(.8); }
+  15% { transform: scale(.7); }
+  20% { transform: scale(.6); }
+  25% { transform: scale(.5); }
+  30% { transform: scale(.4); }
+  35% { transform: scale(.3); }
+  40% { transform: scale(.2); }
+  45% { transform: scale(.2); }
+  50% { transform: scale(.3); }
+  55% { transform: scale(.4); }
+  60% { transform: scale(.5); }
+  65% { transform: scale(.6); }
+  70% { transform: scale(.7); }
+  75% { transform: scale(.8); }
+  80% { transform: scale(.9); }
+  100% { transform: scale(1); }
 }
