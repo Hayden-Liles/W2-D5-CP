@@ -1,4 +1,5 @@
 // STUB upgrades
+// NOTE click multipliers NEED to go under all clickcount otherwise the effect will be undermined
 let pointerUpgrades = [
   {name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200,
   upgradeFormula: [
@@ -227,6 +228,7 @@ let factoryUpgrade = document.querySelector("#factory-upg")
 let manualClicksMultiplier = 1
 let manualClicks = 1
 let automaticClicks = 0
+let automaticClicksMultiplier = 1
 let handObj = pointerUpgrades[0]
 let ovenMittObj = pointerUpgrades[1]
 let microwaveObj = automaticUpgrades[0]
@@ -262,14 +264,14 @@ const Toast = Swal.mixin({
 
 function clickCupcake(){
   totalClicks++
-  cupcakeBank++
+  cupcakeBank += manualClicks
   totalHandMadeCupcakes += manualClicks
   totalCupcakesMade += manualClicks
-  totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
   cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
+  totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
   handMadeCupcakesElem.innerText = `Handmade cupcakes: ${totalHandMadeCupcakes}`
   totalClicksElem.innerText = `All time Cupcake clicks: ${totalClicks}`
-  if(totalClicks == 10){
+  if(totalClicks == 200){
     handUpgrade.removeAttribute("hidden")
     Toast.fire({
       title: 'Unlocked Hand',
@@ -285,13 +287,16 @@ function updateInfo(){
 function checkUpgrade(upgrade, upgradeElem){
   if(cupcakeBank >= upgrade.cost){
     upgrade.quantity++
+    cupcakeBank -= upgrade.cost
     if(upgrade.upgradeFormula.length > 0){
       let nextStat = upgrade.upgradeFormula[0]
-      console.log(nextStat, upgrade)
       if(upgrade.quantity == nextStat.startQuantity){
-        console.log('yep')
+        if(upgrade.clickCount != undefined){
+          upgrade.clickCount = nextStat.cupcakePerClick
+        }else{
+          upgrade.clickMultiplier = nextStat.cupcakePerClick
+        }
         upgrade.costAddition = nextStat.costPerItem
-        upgrade.clickCount = nextStat.cupcakePerClick
         upgrade.upgradeFormula.splice(0, 1)
         if(upgrade.upgradeFormula.length == 0){
           upgrade.upgradeFormula.push({
@@ -303,9 +308,45 @@ function checkUpgrade(upgrade, upgradeElem){
       }
     }
     upgrade.cost += upgrade.costAddition
-    upgradeElem.title = `Cost: ${Math.ceil(upgrade.cost)}`
+    upgradeElem.title = 
+    `Cost: ${Math.ceil(upgrade.cost)}\nOwned: ${upgrade.quantity}`
+    updateClicks()
+    updateInfo()
   }
 }
+
+function updateClicks(){
+  let tempManualClicks = 1
+  let tempManualMultiplier = 1
+  let tempAutomaticClicks = 0
+  let tempAutomaticMultiplier = 1
+  pointerUpgrades.forEach(upgrade => {
+    if(upgrade.clickCount != undefined){
+      tempManualClicks += upgrade.quantity * upgrade.clickCount
+    }else{
+      tempManualMultiplier += upgrade.quantity * upgrade.clickMultiplier
+    }
+  })
+  automaticUpgrades.forEach(upgrade => {
+    if(upgrade.clickCount != undefined){
+      tempAutomaticClicks += upgrade.quantity * upgrade.clickCount
+    }else{
+      tempAutomaticMultiplier += upgrade.quantity * upgrade.clickMultiplier
+    }
+  })
+
+  manualClicks = tempManualClicks * tempManualMultiplier
+  automaticClicks = tempAutomaticClicks * tempAutomaticMultiplier
+}
+
+function autoClicks(){
+  cupcakeBank += automaticClicks
+  totalCupcakesMade += automaticClicks
+  cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
+  totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
+}
+
+setInterval(autoClicks, 1000)
 
 // SECTION EVENT LISTENERS
 cupcakeElem.addEventListener("click", clickCupcake)
