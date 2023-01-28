@@ -262,6 +262,8 @@ const Toast = Swal.mixin({
 
 // SECTION functions
 
+
+// STUB VV clicking the cupcake
 function clickCupcake(){
   totalClicks++
   cupcakeBank += manualClicks
@@ -279,15 +281,12 @@ function clickCupcake(){
   }
 }
 
-function updateInfo(){
-  cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
-  upgradesOwnedElem.innerText = `CP/s: ${automaticClicks}`
-}
-
+// STUB VV Buying an upgrade sets the new stats of that upgrade and then calls checkAutoAchievments
 function checkUpgrade(upgrade, upgradeElem){
   if(cupcakeBank >= upgrade.cost){
     upgrade.quantity++
     cupcakeBank -= upgrade.cost
+    checkAchievments()
     if(upgrade.upgradeFormula.length > 0){
       let nextStat = upgrade.upgradeFormula[0]
       if(upgrade.quantity == nextStat.startQuantity){
@@ -313,6 +312,59 @@ function checkUpgrade(upgrade, upgradeElem){
     updateClicks()
     updateInfo()
   }
+}
+
+// STUB VV checks whether or not the upgrades gets their hidden attribute removed
+function checkAchievments(){
+  // STUB OBJECTS of pointer upgrades
+  let hand = pointerUpgrades.find(e => e.name == "Hand")
+  let ovenMitt = pointerUpgrades.find(e => e.name == "Oven Mitt")
+  // STUB OBJECTS of automatic upgrades
+  let microwave = automaticUpgrades.find(e => e.name == "Microwave")
+  let grandma = automaticUpgrades.find(e => e.name == "Grandma")
+  let oven = automaticUpgrades.find(e => e.name == "Oven")
+  let foodTruck = automaticUpgrades.find(e => e.name == "Food Truck")
+  let factory = automaticUpgrades.find(e => e.name == "Factory")
+  // STUB the check for the achievments
+  switch(true){
+    // STUB pointer upgrade checks
+    case hand.quantity == 16:
+      ovenMittUpgrade.removeAttribute("hidden")
+      Toast.fire({
+        title: 'Unlocked OVEN MITT',
+      })
+      break
+    // STUB automatic upgrade checks
+    case microwave.quantity == 6:
+      grandmaUpgrade.removeAttribute("hidden")
+      Toast.fire({
+        title: 'Unlocked GRANDMA',
+      })
+      break
+    case grandma.quantity == 11:
+      ovenUpgrade.removeAttribute("hidden")
+      Toast.fire({
+        title: 'Unlocked OVEN',
+      })
+      break
+    case oven.quantity == 11:
+      foodTruckUpgrade.removeAttribute("hidden")
+      Toast.fire({
+        title: 'Unlocked FOOD TRUCK',
+      })
+      break
+    case foodTruck.quantity == 11:
+      factoryUpgrade.removeAttribute("hidden")
+      Toast.fire({
+        title: 'Unlocked FACTORY',
+      })
+      break
+  }
+}
+
+function updateInfo(){
+  cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
+  upgradesOwnedElem.innerText = `CP/s: ${automaticClicks}`
 }
 
 function updateClicks(){
