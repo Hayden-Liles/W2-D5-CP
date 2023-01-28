@@ -1,0 +1,96 @@
+p{
+  margin: 0;
+}
+
+/* SECTION id selectors */
+#header{
+  background-color: #585858;
+  font-size: .8em;
+  font-weight: bolder;
+}
+
+#cupcake-background{
+  opacity: .2;
+  height: 100%;
+  width: 100%;
+}
+
+#cupcake-container{
+  background-image: url("./Assets/cupcake-bg.svg");
+  background-size: cover;
+  height: calc(100vh - 20vh - 19.21px);
+}
+
+#upgrade-container{
+  background: linear-gradient(180deg, #663F10 0%, #966225 43.23%, #754712 100%);
+}
+
+#info-container{
+  background: linear-gradient(90.11deg, #913692 0.09%, #c55ac7 44.66%, #7f4380 99.92%);
+  height: 20vh;
+}
+
+/* SECTION Class Selectors */
+
+.cupcake{
+  height: 50%;
+}
+.cupcake:active{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+.upgrade-img{
+  height: 50px;
+  width: 50px;
+  margin: 1em;
+}
+
+.mf{
+  font-size: .8em;
+}
+
+/* SECTION MEDIA QUERY */
+@media (min-width: 576px) {
+  .cupcake{
+    height: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .cupcake{
+    height: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  .mf{
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cupcake{
+    height: 100%;
+  }
+}
+
+@media (min-width: 1400px) {
+}
+
+
+/* SECTION element selectors */
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

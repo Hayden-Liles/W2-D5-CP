@@ -1,0 +1,124 @@
+DEFAULT VARIABLES {
+  manualClickMultiplier = 1
+  manualClicks = 1
+  AutomaticClicks = 0
+}
+
+UPGRADES SECTION{
+
+  - Hand ===> manualClicks {
+    lvl 1-5 = +1 
+      CPL = +200
+    lvl 6-15 = +2
+      CPL = +1000
+    lvl 16-25 = +5 & UNLOCKS Oven Mitt
+      CPL = +2500
+    lvl 26-40 = +10
+      CPL = +5000
+    lvl 41-70 = +50
+      CPL = +10000
+    lvl 71-inf = +100
+      CPL = +15000
+  }
+
+  - Oven Mitt ===> manualClicksMultiplier{
+    lvl 1-5 = +.1
+      CPL = +5000
+    lvl 6-15 = +.2
+      CPL = +10000
+    lvl 16-25 = +.3
+      CPL = +20000
+    lvl 26-40 = +.4
+      CPL = +30000
+    lvl 41-60 = +.5
+      CPL = +50000
+    lvl 71-inf = +.6
+      CPL = +80000
+  }
+
+  - Microwave ===> AutomaticClicks {
+    lvl 1-15 = +1
+      CPL = +40
+    lvl 16-30 = +5 UNLOCKS Grandma
+      CPL = +100
+    lvl 31-45 = +15
+      CPL = +500
+    lvl 46-60 = +20
+      CPL = +1500
+    lvl 61-inf = +50
+      CPL = +3000
+  }
+
+  - Grandma ===> AutomaticClicks {
+    lvl 1-10 = +15
+      CPL = +300
+    lvl 11-25 = +25 UNLOCKS Oven
+      CPL = +500
+    lvl 26-35 = +50
+      CPL = +1500
+    lvl 36-50 = +100
+      CPL = +3000
+    lvl 51-70 = +250
+      CPL = +5000
+    lvl 71-inf = +400
+      CPL = +10000
+  }
+
+  - Oven ===> AutomaticClicks {
+    lvl 1-10 = +50
+      CPL = +2000
+    lvl 11-25 = +150 UNLOCKS Food Truck
+      CPL = +5000
+    lvl 26-40 = +350
+      CPL = +8000
+    lvl 41-60 = +600
+      CPL = +12000
+    lvl 61-75 = +900
+      CPL = +15000
+    lvl 76-inf = +1300
+      CPL = +20000
+  }
+
+  - Food Truck ===> AutomaticClicks {
+    lvl 1-10 = +1000
+      CPL = +5000
+    lvl 11-25 = +1500 UNLOCKS Factory
+      CPL = +10000
+    lvl 26-40 = +2000
+      CPL = +15000
+    lvl 41-50 = +4000
+      CPL = +20000
+    lvl 51-65 = +6000
+      CPL = +30000
+    lvl 66-inf = +10000
+      CPL = +45000
+  }
+
+  - Factory ===> AutomaticClicks {
+    lvl 1-10 = +3000
+      CPL = +10000
+    lvl 11-25 = +5000
+      CPL = +20000
+    lvl 26-40 = +8000
+      CPL = +50000
+    lvl 41-50 = +10000
+      CPL = +100000
+    lvl 51-60 = +15000
+      CPL = +300000
+    lvl 61-70 = +20000
+      CPL = +800000
+    lvl 71-ing = +30000
+      CPL = +1,500000
+  }
+
+
+}
+
+INFORMATION SECTION{
+  - Cupcakes in the bank    | How many cupcakes that they currently have that can be used
+  - Cupcakes per click      | How many cupcakes that they bake when they click the cupcake
+  - All time cupcakes baked | How many cupcakes that they have baked including clicked and automatically made
+  - All time Cupcake clicks | How many times that they have clicked the cupcake
+  - Handmade cupcakes       | How many cupcakes that they have made ONLY by clicking whether that +1 or +2 ect.
+  - Upgrades owned          | How many upgrades that they have purchased no matter the upgrade
+}

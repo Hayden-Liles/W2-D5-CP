@@ -1,0 +1,12 @@
+<div class="col-12 d-flex justify-content-around p-1">
+            <p class="pe-md-5 mf" id="total-cupcakes-in-bank">Cupcakes in the bank:</p>
+            <p id="upgrades-owned" class="mf">Upgrades owned:</p>
+          </div>
+          <div class="col-12 d-flex justify-content-around p-1">
+            <p class="pe-md-5 mf" id="cupcakes-per-click">Cupcakes per click:</p>
+            <p id="hand-made-cupcakes" class="mf">Handmade cupcakes:</p>
+          </div>
+          <div class="col-12 d-flex justify-content-around p-1">
+            <p class="pe-md-5 mf" id="total-cupcakes-made">All time cupcakes baked:</p>
+            <p id="total-clicks" class="mf">All time Cupcake clicks:</p>
+          </div>

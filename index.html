@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- STUB Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- STUB my style sheet -->
+  <link rel="stylesheet" href="style.css">
+  <title>Cupcake Clicker</title>
+</head>
+<body>
+
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col12 text-center" id="header">
+          <p>Cupcake Clicker</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <!-- SECTION the game container | handles the cupcake aswell as the upgrades -->
+      <div class="row" id="game-container">
+      <!-- STUB cupcake container it handles the cupcake container -->
+      <div class="col-9 p-0 d-flex justify-content-center align-items-center" id="cupcake-container">
+        <img src="./Assets/cupcakes/brown-cupcake.svg" class="Cupcake" id="cupcake" draggable="false">
+      </div>
+      <!-- STUB upgrade container it handles the upgrade container -->
+      <!-- NOTE VVV USE THIS FOR THE UPGRADES -->
+      <!-- <img src="./Assets/clicker-upgrades/hand.svg" class="upgrade-img"> -->
+      <div class="col-3" id="upgrade-container">
+        <div class="row">
+          <div class="col-12 border-bottom border-dark">
+            <img src="./Assets/clicker-upgrades/hand.svg" class="upgrade-img" draggable="false" id="hand-upg" hidden>
+            <img src="./Assets/clicker-upgrades/yellow-mitt.svg" class="upgrade-img" draggable="false" id="oven-mitt-upg" hidden>
+          </div>
+          <div class="col-12">
+            <img src="./Assets/auto-upgrades/microwave.svg" class="upgrade-img" draggable="false" id="microwave-upg">
+            <img src="./Assets/auto-upgrades/grandma.svg" class="upgrade-img" draggable="false" id="grandma-upg" hidden>
+            <img src="./Assets/auto-upgrades/oven.svg" class="upgrade-img" draggable="false" id="oven-upg" hidden>
+            <img src="./Assets/auto-upgrades/food-truck.svg" class="upgrade-img" draggable="false" id="food-truck-upg" hidden>
+            <img src="./Assets/auto-upgrades/factory.svg" class="upgrade-img" draggable="false" id="factory-upg" hidden>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- SECTION the info container | handles the information about the session -->
+      <div class="row">
+        <div class="col-12 p-3 fs-4" id="info-container">
+          <div class="row">
+            <!-- STUB LEFT SIDE -->
+            <div class="col-6">
+              <p class="pe-md-5 mf" id="total-cupcakes-in-bank">Cupcakes in the bank:</p>
+              <p class="pe-md-5 mf" id="cupcakes-per-click">Cupcakes per click:</p>
+              <p class="pe-md-5 mf" id="total-cupcakes-made">All time cupcakes baked:</p>
+            </div>
+            <!-- STUB RIGHT SIDE -->
+            <div class="col-6">
+              <p id="upgrades-owned" class="mf">Upgrades owned:</p>
+              <p id="hand-made-cupcakes" class="mf">Handmade cupcakes:</p>
+              <p id="total-clicks" class="mf">All time Cupcake clicks:</p>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- STUB Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <!-- STUB app.js Script -->
+  <script src="app.js"></script>
+</body>
+</html>
