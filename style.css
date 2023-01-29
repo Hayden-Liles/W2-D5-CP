@@ -52,7 +52,7 @@ p{
 .upgrade-img:hover
 
 .mf{
-  font-size: .65em;
+  font-size: .45em;
 }
 
 /* SECTION MEDIA QUERY */
@@ -70,7 +70,7 @@ p{
 
 @media (min-width: 992px) {
   .mf{
-    font-size: 1em;
+    font-size: 1.5em;
   }
 }
 
