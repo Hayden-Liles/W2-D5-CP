@@ -286,6 +286,7 @@ function clickCupcake(){
   totalClicksElem.innerText = `All time Cupcake clicks: ${totalClicks}`
   if(totalClicks == 200){
     handUpgrade.removeAttribute("hidden")
+    handObj.unlocked = true
     Toast.fire({
       title: 'Unlocked Hand',
     })
@@ -424,12 +425,49 @@ function save(){
   localStorage.setItem("cupcakeBank", JSON.stringify(cupcakeBank))
   localStorage.setItem("totalHandMadeCupcakes", JSON.stringify(totalHandMadeCupcakes))
   localStorage.setItem("totalCupcakesMade", JSON.stringify(totalCupcakesMade))
-  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
-  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
-  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
+}
+
+function load(){
+  pointerUpgrades = JSON.parse(localStorage.getItem("manualUpgrades"))
+  automaticUpgrades = JSON.parse(localStorage.getItem("automaticUpgrades"))
+  totalClicks = JSON.parse(localStorage.getItem("totalClicks"))
+  cupcakeBank = JSON.parse(localStorage.getItem("cupcakeBank"))
+  totalHandMadeCupcakes = JSON.parse(localStorage.getItem("totalHandMadeCupcakes"))
+  totalCupcakesMade = JSON.parse(localStorage.getItem("totalCupcakesMade"))
+
+  switch(true){
+    // STUB pointer upgrade checks
+    case handObj.unlocked:
+      handUpgrade.removeAttribute("hidden")
+      break
+    case ovenMittObj.unlocked:
+      ovenMittUpgrade.removeAttribute("hidden")
+      break
+    // STUB automatic upgrade checks
+    case grandmaObj.unlocked:
+      grandmaUpgrade.removeAttribute("hidden")
+      break
+    case ovenObj.unlocked:
+      ovenUpgrade.removeAttribute("hidden")
+      break
+    case foodTruckObj.unlocked:
+      foodTruckUpgrade.removeAttribute("hidden")
+      break
+    case factoryObj.unlocked:
+      factoryUpgrade.removeAttribute("hidden")
+      break
+  }
+  handObj = pointerUpgrades.find(e => e.name == "Hand")
+  ovenMittObj = pointerUpgrades.find(e => e.name == "Oven Mitt")
+  microwaveObj = automaticUpgrades.find(e => e.name == "Microwave")
+  grandmaObj = automaticUpgrades.find(e => e.name == "Grandma")
+  ovenObj = automaticUpgrades.find(e => e.name == "Oven")
+  foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
+  factoryObj = automaticUpgrades.find(e => e.name == "Factory")
 }
 
 setInterval(autoClicks, 1000)
+setInterval(save, 300000)
 
 // SECTION EVENT LISTENERS
 cupcakeElem.addEventListener("click", clickCupcake)
@@ -456,7 +494,14 @@ foodTruckUpgrade.addEventListener("click", function(){ // STUB - FOOD TRUCK
 factoryUpgrade.addEventListener("click", function(){ // STUB - FACTORY
   checkUpgrade(factoryObj)
 })
-
-updateInfo()
-updateToolTips()
-
+if(localStorage.length > 3){
+  load()
+  updateInfo()
+  updateToolTips()
+  autoClicks()
+  clickCupcake()
+  load()
+}else{
+  updateInfo()
+  updateToolTips()
+}
