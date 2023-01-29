@@ -1,7 +1,7 @@
 // SECTION upgrades
 // NOTE click multipliers NEED to go under all clickcount otherwise the effect will be undermined
 let pointerUpgrades = [
-  {name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200,
+  {name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200, unlocked: false,
   upgradeFormula: [
     {
       startQuantity: 5,
@@ -30,7 +30,7 @@ let pointerUpgrades = [
     },
   ]},
 
-  {name: "Oven Mitt", quantity: 0, clickMultiplier: .1, cost: 5000, costAddition: 5000,
+  {name: "Oven Mitt", quantity: 0, clickMultiplier: .1, cost: 5000, costAddition: 5000, unlocked: false,
   upgradeFormula: [
     {
       startQuantity: 5,
@@ -61,7 +61,7 @@ let pointerUpgrades = [
 ]
 
 let automaticUpgrades = [
-  {name: "Microwave", quantity: 0, clickCount: 1, cost: 40, costAddition: 40,
+  {name: "Microwave", quantity: 0, clickCount: 1, cost: 40, costAddition: 40, unlocked: true,
    upgradeFormula:[
     {
       startQuantity: 15,
@@ -89,7 +89,7 @@ let automaticUpgrades = [
       cupcakePerClick: 70,
     },
    ]},
-  {name: "Grandma", quantity: 0, clickCount: 15, cost: 300, costAddition: 300,
+  {name: "Grandma", quantity: 0, clickCount: 15, cost: 300, costAddition: 300, unlocked: false, 
   upgradeFormula: [
   {
     startQuantity: 10,
@@ -117,7 +117,7 @@ let automaticUpgrades = [
     cupcakePerClick: 70,
   },
   ]},
-  {name: "Oven", quantity: 0, clickCount: 50, cost: 2000, costAddition: 2000,
+  {name: "Oven", quantity: 0, clickCount: 50, cost: 2000, costAddition: 2000, unlocked: false,
   upgradeFormula: [
     {
       startQuantity: 10,
@@ -145,7 +145,7 @@ let automaticUpgrades = [
       cupcakePerClick: 1300,
     },
   ]},
-  {name: "Food Truck", quantity: 0, clickCount: 1000, cost: 5000, costAddition: 5000,
+  {name: "Food Truck", quantity: 0, clickCount: 1000, cost: 5000, costAddition: 5000, unlocked: false,
   upgradeFormula: [
     {
       startQuantity: 10,
@@ -173,7 +173,7 @@ let automaticUpgrades = [
       cupcakePerClick: 10000,
     },
   ]},
-  {name: "Factory", quantity: 0, clickCount: 3000, cost: 10000, costAddition: 10000,
+  {name: "Factory", quantity: 0, clickCount: 3000, cost: 10000, costAddition: 10000, unlocked: false,
   upgradeFormula: [
     {
       startQuantity: 10,
@@ -241,20 +241,23 @@ let manualClicksMultiplier = 1
 let manualClicks = 1
 let automaticClicks = 0
 let automaticClicksMultiplier = 1
-let handObj = pointerUpgrades[0]
-let ovenMittObj = pointerUpgrades[1]
-let microwaveObj = automaticUpgrades[0]
-let grandmaObj = automaticUpgrades[1]
-let ovenObj = automaticUpgrades[2]
-let foodTruckObj = automaticUpgrades[3]
-let factoryObj = automaticUpgrades[4]
+// SECTION upgrade OBJECTS
+// STUB OBJECTS of pointer upgrades
+let handObj = pointerUpgrades.find(e => e.name == "Hand")
+let ovenMittObj = pointerUpgrades.find(e => e.name == "Oven Mitt")
+// STUB OBJECTS of automatic upgrades
+let microwaveObj = automaticUpgrades.find(e => e.name == "Microwave")
+let grandmaObj = automaticUpgrades.find(e => e.name == "Grandma")
+let ovenObj = automaticUpgrades.find(e => e.name == "Oven")
+let foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
+let factoryObj = automaticUpgrades.find(e => e.name == "Factory")
+
 
 // SECTION informational variables
 let totalClicks = 0
 let cupcakeBank = 0
 let totalHandMadeCupcakes = 0
 let totalCupcakesMade = 0
-let totalUpgrades = 0
 
 // SECTION Toast Config
 const Toast = Swal.mixin({
@@ -324,45 +327,41 @@ function checkUpgrade(upgrade){
 
 // STUB VV checks whether or not the upgrades gets their hidden attribute removed
 function checkAchievments(){
-  // STUB OBJECTS of pointer upgrades
-  let hand = pointerUpgrades.find(e => e.name == "Hand")
-  let ovenMitt = pointerUpgrades.find(e => e.name == "Oven Mitt")
-  // STUB OBJECTS of automatic upgrades
-  let microwave = automaticUpgrades.find(e => e.name == "Microwave")
-  let grandma = automaticUpgrades.find(e => e.name == "Grandma")
-  let oven = automaticUpgrades.find(e => e.name == "Oven")
-  let foodTruck = automaticUpgrades.find(e => e.name == "Food Truck")
-  let factory = automaticUpgrades.find(e => e.name == "Factory")
-  // STUB the check for the achievments
+// STUB the check for the achievments
   switch(true){
     // STUB pointer upgrade checks
-    case hand.quantity == 16:
+    case handObj.quantity == 16:
       ovenMittUpgrade.removeAttribute("hidden")
+      ovenMittObj.unlocked = true
       Toast.fire({
         title: 'Unlocked OVEN MITT',
       })
       break
     // STUB automatic upgrade checks
-    case microwave.quantity == 6:
+    case microwaveObj.quantity == 6:
       grandmaUpgrade.removeAttribute("hidden")
+      grandmaObj.unlocked = true
       Toast.fire({
         title: 'Unlocked GRANDMA',
       })
       break
-    case grandma.quantity == 11:
+    case grandmaObj.quantity == 11:
       ovenUpgrade.removeAttribute("hidden")
+      ovenObj.unlocked = true
       Toast.fire({
         title: 'Unlocked OVEN',
       })
       break
-    case oven.quantity == 11:
+    case ovenObj.quantity == 11:
       foodTruckUpgrade.removeAttribute("hidden")
+      foodTruckObj.unlocked = true
       Toast.fire({
         title: 'Unlocked FOOD TRUCK',
       })
       break
-    case foodTruck.quantity == 11:
+    case foodTruckObj.quantity == 11:
       factoryUpgrade.removeAttribute("hidden")
+      factoryObj.unlocked = true
       Toast.fire({
         title: 'Unlocked FACTORY',
       })
@@ -416,6 +415,18 @@ function autoClicks(){
   totalCupcakesMade += automaticClicks
   cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
   totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
+}
+
+function save(){
+  localStorage.setItem("manualUpgrades", JSON.stringify(pointerUpgrades))
+  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
+  localStorage.setItem("totalClicks", JSON.stringify(totalClicks))
+  localStorage.setItem("cupcakeBank", JSON.stringify(cupcakeBank))
+  localStorage.setItem("totalHandMadeCupcakes", JSON.stringify(totalHandMadeCupcakes))
+  localStorage.setItem("totalCupcakesMade", JSON.stringify(totalCupcakesMade))
+  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
+  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
+  localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
 }
 
 setInterval(autoClicks, 1000)
