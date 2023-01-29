@@ -1,4 +1,4 @@
-// STUB upgrades
+// SECTION upgrades
 // NOTE click multipliers NEED to go under all clickcount otherwise the effect will be undermined
 let pointerUpgrades = [
   {name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200,
@@ -215,7 +215,7 @@ let handMadeCupcakesElem = document.querySelector("#hand-made-cupcakes")
 let totalClicksElem = document.querySelector("#total-clicks")
 let totalCupcakesMadeElem = document.querySelector("#total-cupcakes-made")
 let cupcakePerClickElem = document.querySelector("#cupcakes-per-click")
-let upgradesOwnedElem = document.querySelector("#upgrades-owned")
+let cupcakesPerSecondElem = document.querySelector("#cupcake-per-second")
 // ANCHOR - element selectors for UPGRADES
 let handUpgrade = document.querySelector("#hand-upg")
 let ovenMittUpgrade = document.querySelector("#oven-mitt-upg")
@@ -224,6 +224,18 @@ let grandmaUpgrade = document.querySelector("#grandma-upg")
 let ovenUpgrade = document.querySelector("#oven-upg")
 let foodTruckUpgrade = document.querySelector("#food-truck-upg")
 let factoryUpgrade = document.querySelector("#factory-upg")
+
+// SECTION - TOOL TIP ELEMENTS
+// STUB POINTER UPGRADE TIPS
+let handTip = document.querySelector("#hand-tip")
+let ovenMittTip = document.querySelector("#oven-mitt-tip")
+// STUB AUTO UPGRADE TIPS
+let microwaveTip = document.querySelector("#microwave-tip")
+let grandmaTip = document.querySelector("#grandma-tip")
+let ovenTip = document.querySelector("#oven-tip")
+let foodTruckTip = document.querySelector("#food-truck-tip")
+let factoryTip = document.querySelector("#factory-tip")
+
 // SECTION game mechanical variables
 let manualClicksMultiplier = 1
 let manualClicks = 1
@@ -237,7 +249,6 @@ let ovenObj = automaticUpgrades[2]
 let foodTruckObj = automaticUpgrades[3]
 let factoryObj = automaticUpgrades[4]
 
-
 // SECTION informational variables
 let totalClicks = 0
 let cupcakeBank = 0
@@ -246,7 +257,6 @@ let totalCupcakesMade = 0
 let totalUpgrades = 0
 
 // SECTION Toast Config
-
 const Toast = Swal.mixin({
   toast: true,
   position: 'bottom',
@@ -261,8 +271,6 @@ const Toast = Swal.mixin({
 
 
 // SECTION functions
-
-
 // STUB VV clicking the cupcake
 function clickCupcake(){
   totalClicks++
@@ -282,11 +290,12 @@ function clickCupcake(){
 }
 
 // STUB VV Buying an upgrade sets the new stats of that upgrade and then calls checkAutoAchievments
-function checkUpgrade(upgrade, upgradeElem){
+function checkUpgrade(upgrade){
   if(cupcakeBank >= upgrade.cost){
     upgrade.quantity++
     cupcakeBank -= upgrade.cost
     checkAchievments()
+    updateInfo()
     if(upgrade.upgradeFormula.length > 0){
       let nextStat = upgrade.upgradeFormula[0]
       if(upgrade.quantity == nextStat.startQuantity){
@@ -307,10 +316,9 @@ function checkUpgrade(upgrade, upgradeElem){
       }
     }
     upgrade.cost += upgrade.costAddition
-    upgradeElem.title = 
-    `Cost: ${Math.ceil(upgrade.cost)}\nOwned: ${upgrade.quantity}`
     updateClicks()
     updateInfo()
+    updateToolTips()
   }
 }
 
@@ -364,7 +372,19 @@ function checkAchievments(){
 
 function updateInfo(){
   cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
-  upgradesOwnedElem.innerText = `CP/s: ${automaticClicks}`
+  cupcakesPerSecondElem.innerText = `CP/s: ${automaticClicks}`
+  cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
+}
+
+function updateToolTips(){
+  handTip.innerText =`Name: ${handObj.name}\nOwn: ${handObj.quantity}\nCost: ${handObj.cost}\nDescription: Increases Cupcakes Per Click by (${handObj.clickCount})`
+  ovenMittTip.innerText = `Name: ${ovenMittObj.name}\nOwn: ${ovenMittObj.quantity}\nCost: ${ovenMittObj.cost}\nDescription: Increases Cupcakes Per Click by (${ovenMittObj.clickMultiplier}%)`
+
+  microwaveTip.innerText =`Name: ${microwaveObj.name}\nOwn: ${microwaveObj.quantity}\nCost: ${microwaveObj.cost}\nDescription: Increases Cupcakes Per Second by (${microwaveObj.clickCount})`
+  grandmaTip.innerText =`Name: ${grandmaObj.name}\nOwn: ${grandmaObj.quantity}\nCost: ${grandmaObj.cost}\nDescription: Increases Cupcakes Per Second by (${grandmaObj.clickCount})`
+  ovenTip.innerText =`Name: ${ovenObj.name}\nOwn: ${ovenObj.quantity}\nCost: ${ovenObj.cost}\nDescription: Increases Cupcakes Per Second by (${ovenObj.clickCount})`
+  foodTruckTip.innerText =`Name: ${foodTruckObj.name}\nOwn: ${foodTruckObj.quantity}\nCost: ${foodTruckObj.cost}\nDescription: Increases Cupcakes Per Second by (${foodTruckObj.clickCount})`
+  factoryTip.innerText =`Name: ${factoryObj.name}\nOwn: ${factoryObj.quantity}\nCost: ${factoryObj.cost}\nDescription: Increases Cupcakes Per Second by (${factoryObj.clickCount})`
 }
 
 function updateClicks(){
@@ -404,28 +424,28 @@ setInterval(autoClicks, 1000)
 cupcakeElem.addEventListener("click", clickCupcake)
 // STUB for the manual click upgrades
 handUpgrade.addEventListener("click", function(){ //STUB - HAND
-  checkUpgrade(handObj, handUpgrade)
+  checkUpgrade(handObj)
 })
 ovenMittUpgrade.addEventListener("click", function(){ // STUB - OVEN MITT
-  checkUpgrade(ovenMittObj, ovenMittUpgrade)
+  checkUpgrade(ovenMittObj)
 })
 // STUB for the automatic click upgrades
 microwaveUpgrade.addEventListener("click", function(){ // STUB - MICROWAVE
-  checkUpgrade(microwaveObj, microwaveUpgrade)
+  checkUpgrade(microwaveObj)
 })
 grandmaUpgrade.addEventListener("click", function(){ // STUB - GRANDMA
-  checkUpgrade(grandmaObj, grandmaUpgrade)
+  checkUpgrade(grandmaObj)
 })
 ovenUpgrade.addEventListener("click", function(){ // STUB - OVEN
-  checkUpgrade(ovenObj, ovenUpgrade)
+  checkUpgrade(ovenObj)
 })
 foodTruckUpgrade.addEventListener("click", function(){ // STUB - FOOD TRUCK
-  checkUpgrade(foodTruckObj, foodTruckUpgrade)
+  checkUpgrade(foodTruckObj)
 })
 factoryUpgrade.addEventListener("click", function(){ // STUB - FACTORY
-  checkUpgrade(factoryObj, factoryUpgrade)
+  checkUpgrade(factoryObj)
 })
 
 updateInfo()
-
+updateToolTips()
 

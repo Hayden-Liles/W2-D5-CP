@@ -1,12 +1,49 @@
-<div class="col-12 d-flex justify-content-around p-1">
-            <p class="pe-md-5 mf" id="total-cupcakes-in-bank">Cupcakes in the bank:</p>
-            <p id="upgrades-owned" class="mf">Upgrades owned:</p>
-          </div>
-          <div class="col-12 d-flex justify-content-around p-1">
-            <p class="pe-md-5 mf" id="cupcakes-per-click">Cupcakes per click:</p>
-            <p id="hand-made-cupcakes" class="mf">Handmade cupcakes:</p>
-          </div>
-          <div class="col-12 d-flex justify-content-around p-1">
-            <p class="pe-md-5 mf" id="total-cupcakes-made">All time cupcakes baked:</p>
-            <p id="total-clicks" class="mf">All time Cupcake clicks:</p>
-          </div>
+.mytip, .mytip2{
+  --bs-tooltip-zindex: 1080;
+  --bs-tooltip-max-width: 200px;
+  --bs-tooltip-padding-x: 0.5rem;
+  --bs-tooltip-padding-y: 0.25rem;
+  --bs-tooltip-margin: ;
+  --bs-tooltip-font-size: 0.875rem;
+  --bs-tooltip-color: var(--bs-body-bg);
+  --bs-tooltip-bg: var(--bs-emphasis-color);
+  --bs-tooltip-border-radius: var(--bs-border-radius);
+  --bs-tooltip-opacity: 0.9;
+  --bs-tooltip-arrow-width: 0.8rem;
+  --bs-tooltip-arrow-height: 0.4rem;
+  font-family: var(--bs-font-sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: start;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  white-space: normal;
+  word-spacing: normal;
+  line-break: auto;
+  font-size: var(--bs-tooltip-font-size);
+  word-wrap: break-word;
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+.mytip .mytiptext, .mytip2 .mytiptext2{
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  top: 80px;
+  left: -200%;
+  z-index: 1;
+}
+
+.mytip:hover .mytiptext, .mytip2:hover .mytiptext2{
+  visibility: visible;
+}

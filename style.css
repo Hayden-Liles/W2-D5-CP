@@ -32,6 +32,7 @@ p{
 
 /* SECTION Class Selectors */
 
+
 .cupcake{
   height: 50%;
 }
@@ -48,6 +49,7 @@ p{
 .upgrade-img:active{
   animation: shrink-grow .1s;
 }
+.upgrade-img:hover
 
 .mf{
   font-size: .65em;
@@ -97,23 +99,58 @@ p{
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
-@keyframes shrink-grow {
+/* SECTION my own animation I took it out cause it didnt line up with what i wanted */
+/* @keyframes shrink-grow {
   5% { transform: scale(.9); }
   10% { transform: scale(.8); }
   15% { transform: scale(.7); }
   20% { transform: scale(.6); }
   25% { transform: scale(.5); }
   30% { transform: scale(.4); }
-  35% { transform: scale(.3); }
-  40% { transform: scale(.2); }
-  45% { transform: scale(.2); }
-  50% { transform: scale(.3); }
-  55% { transform: scale(.4); }
-  60% { transform: scale(.5); }
   65% { transform: scale(.6); }
   70% { transform: scale(.7); }
   75% { transform: scale(.8); }
   80% { transform: scale(.9); }
   100% { transform: scale(1); }
+} */
+
+
+
+.handTip .ovenMittTip
+.microwaveTip .granmaTip .ovenTip .foodTruckTip .factoryTip{
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+/* STUB MANUAL */
+.handTip .handTipText,
+.ovenMittTip .ovenMittTipText,
+/* STUB AUTOMATIC */
+.microwaveTip .microwaveTipText,
+.granmaTip .granmaTipText,
+.ovenTip .ovenTipText,
+.foodTruckTip .foodTruckTipText,
+.factoryTip .factoryTipText{
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+  color: #fff;
+  padding: 1em;
+  border-radius: 6px;
+  position: absolute;
+  right: 25%;
+  z-index: 2;
+  opacity: 1;
+}
+/* STUB MANUAL */
+.handTip:hover .handTipText,
+.ovenMittTip:hover .ovenMittTipText,
+/* STUB AUTOMATIC */
+.microwaveTip:hover .microwaveTipText,
+.granmaTip:hover .granmaTipText,
+.ovenTip:hover .ovenTipText,
+.foodTruckTip:hover .foodTruckTipText,
+.factoryTip:hover .factoryTipText{
+  visibility: visible;
 }
