@@ -178,32 +178,32 @@ let automaticUpgrades = [
     {
       startQuantity: 10,
       costPerItem: 20000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 5000,
     },
     {
       startQuantity: 25,
       costPerItem: 50000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 8000,
     },
     {
       startQuantity: 40,
       costPerItem: 100000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 10000,
     },
     {
       startQuantity: 50,
       costPerItem: 300000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 15000,
     },
     {
       startQuantity: 60,
       costPerItem: 800000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 20000,
     },
     {
       startQuantity: 70,
       costPerItem: 1500000,
-      cupcakePerClick: 5,
+      cupcakePerClick: 30000,
     },
   ]},
 ]
@@ -280,10 +280,7 @@ function clickCupcake(){
   cupcakeBank += manualClicks
   totalHandMadeCupcakes += manualClicks
   totalCupcakesMade += manualClicks
-  cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
-  totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
-  handMadeCupcakesElem.innerText = `Handmade cupcakes: ${totalHandMadeCupcakes}`
-  totalClicksElem.innerText = `All time Cupcake clicks: ${totalClicks}`
+  updateInfo()
   if(totalClicks == 200){
     handUpgrade.removeAttribute("hidden")
     handObj.unlocked = true
@@ -374,6 +371,10 @@ function updateInfo(){
   cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
   cupcakesPerSecondElem.innerText = `CP/s: ${automaticClicks}`
   cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
+  cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
+  totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
+  handMadeCupcakesElem.innerText = `Handmade cupcakes: ${totalHandMadeCupcakes}`
+  totalClicksElem.innerText = `All time Cupcake clicks: ${totalClicks}`
 }
 
 function updateToolTips(){
@@ -407,8 +408,8 @@ function updateClicks(){
     }
   })
 
-  manualClicks = tempManualClicks * tempManualMultiplier
-  automaticClicks = tempAutomaticClicks * tempAutomaticMultiplier
+  manualClicks = Math.floor(tempManualClicks * tempManualMultiplier)
+  automaticClicks = Math.floor(tempAutomaticClicks * tempAutomaticMultiplier)
 }
 
 function autoClicks(){
@@ -425,38 +426,20 @@ function save(){
   localStorage.setItem("cupcakeBank", JSON.stringify(cupcakeBank))
   localStorage.setItem("totalHandMadeCupcakes", JSON.stringify(totalHandMadeCupcakes))
   localStorage.setItem("totalCupcakesMade", JSON.stringify(totalCupcakesMade))
+
+  localStorage.setItem("automaticClicks", JSON.stringify(automaticClicks))
+  localStorage.setItem("manualClicks", JSON.stringify(manualClicks))
 }
 
 function load(){
   pointerUpgrades = JSON.parse(localStorage.getItem("manualUpgrades"))
   automaticUpgrades = JSON.parse(localStorage.getItem("automaticUpgrades"))
+  automaticClicks = JSON.parse(localStorage.getItem("automaticClicks"))
+  manualClicks = JSON.parse(localStorage.getItem("manualClicks"))
   totalClicks = JSON.parse(localStorage.getItem("totalClicks"))
   cupcakeBank = JSON.parse(localStorage.getItem("cupcakeBank"))
   totalHandMadeCupcakes = JSON.parse(localStorage.getItem("totalHandMadeCupcakes"))
   totalCupcakesMade = JSON.parse(localStorage.getItem("totalCupcakesMade"))
-
-  switch(true){
-    // STUB pointer upgrade checks
-    case handObj.unlocked:
-      handUpgrade.removeAttribute("hidden")
-      break
-    case ovenMittObj.unlocked:
-      ovenMittUpgrade.removeAttribute("hidden")
-      break
-    // STUB automatic upgrade checks
-    case grandmaObj.unlocked:
-      grandmaUpgrade.removeAttribute("hidden")
-      break
-    case ovenObj.unlocked:
-      ovenUpgrade.removeAttribute("hidden")
-      break
-    case foodTruckObj.unlocked:
-      foodTruckUpgrade.removeAttribute("hidden")
-      break
-    case factoryObj.unlocked:
-      factoryUpgrade.removeAttribute("hidden")
-      break
-  }
   handObj = pointerUpgrades.find(e => e.name == "Hand")
   ovenMittObj = pointerUpgrades.find(e => e.name == "Oven Mitt")
   microwaveObj = automaticUpgrades.find(e => e.name == "Microwave")
@@ -464,6 +447,24 @@ function load(){
   ovenObj = automaticUpgrades.find(e => e.name == "Oven")
   foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
   factoryObj = automaticUpgrades.find(e => e.name == "Factory")
+  if(handObj.unlocked){
+    handUpgrade.removeAttribute("hidden")
+  }
+  if(ovenMittObj.unlocked){
+    ovenMittUpgrade.removeAttribute("hidden")
+  }
+  if(grandmaObj.unlocked){
+    grandmaUpgrade.removeAttribute("hidden")
+  }
+  if(ovenObj.unlocked){
+    ovenUpgrade.removeAttribute("hidden")
+  }
+  if(foodTruckObj.unlocked){
+    foodTruckUpgrade.removeAttribute("hidden")
+  }
+  if(factoryObj.unlocked){
+    factoryUpgrade.removeAttribute("hidden")
+  }
 }
 
 setInterval(autoClicks, 1000)
@@ -494,13 +495,11 @@ foodTruckUpgrade.addEventListener("click", function(){ // STUB - FOOD TRUCK
 factoryUpgrade.addEventListener("click", function(){ // STUB - FACTORY
   checkUpgrade(factoryObj)
 })
-if(localStorage.length > 3){
+
+if(localStorage.length > 2){
   load()
   updateInfo()
   updateToolTips()
-  autoClicks()
-  clickCupcake()
-  load()
 }else{
   updateInfo()
   updateToolTips()
