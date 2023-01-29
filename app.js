@@ -61,7 +61,7 @@ let pointerUpgrades = [
 ]
 
 let automaticUpgrades = [
-  {name: "Microwave", quantity: 0, clickCount: 1, cost: 40, costAddition: 40, unlocked: true,
+  {name: "Microwave", quantity: 0, clickCount: 1, cost: 20, costAddition: 20, unlocked: true,
    upgradeFormula:[
     {
       startQuantity: 15,
@@ -447,6 +447,7 @@ function load(){
   ovenObj = automaticUpgrades.find(e => e.name == "Oven")
   foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
   factoryObj = automaticUpgrades.find(e => e.name == "Factory")
+
   if(handObj.unlocked){
     handUpgrade.removeAttribute("hidden")
   }
