@@ -1,211 +1,225 @@
 // SECTION upgrades
 // NOTE click multipliers NEED to go under all clickcount otherwise the effect will be undermined
 let pointerUpgrades = [
-  {name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200, unlocked: false,
-  upgradeFormula: [
-    {
-      startQuantity: 5,
-      costPerItem: 1000,
-      cupcakePerClick: 2
-    },
-    {
-      startQuantity: 15,
-      costPerItem: 2500,
-      cupcakePerClick: 5
-    },
-    {
-      startQuantity: 25,
-      costPerItem: 5000,
-      cupcakePerClick: 10
-    },
-    {
-      startQuantity: 40,
-      costPerItem: 10000,
-      cupcakePerClick: 50
-    },
-    {
-      startQuantity: 70,
-      costPerItem: 15000,
-      cupcakePerClick: 100
-    },
-  ]},
+  {
+    name: "Hand", quantity: 0, clickCount: 1, cost: 200, costAddition: 200, unlocked: false, unlockNext: 16,
+    upgradeFormula: [
+      {
+        startQuantity: 5,
+        costPerItem: 1000,
+        cupcakePerClick: 2
+      },
+      {
+        startQuantity: 15,
+        costPerItem: 2500,
+        cupcakePerClick: 5
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 5000,
+        cupcakePerClick: 10
+      },
+      {
+        startQuantity: 40,
+        costPerItem: 10000,
+        cupcakePerClick: 50
+      },
+      {
+        startQuantity: 70,
+        costPerItem: 15000,
+        cupcakePerClick: 100
+      },
+    ]
+  },
 
-  {name: "Oven Mitt", quantity: 0, clickMultiplier: .1, cost: 5000, costAddition: 5000, unlocked: false,
-  upgradeFormula: [
-    {
-      startQuantity: 5,
-      costPerItem: 10000,
-      cupcakePerClick: .2,
-    },
-    {
-      startQuantity: 15,
-      costPerItem: 20000,
-      cupcakePerClick: .3,
-    },
-    {
-      startQuantity: 25,
-      costPerItem: 30000,
-      cupcakePerClick: .4,
-    },
-    {
-      startQuantity: 40,
-      costPerItem: 50000,
-      cupcakePerClick: .5,
-    },
-    {
-      startQuantity: 70,
-      costPerItem: 80000,
-      cupcakePerClick: .6,
-    },
-  ]},
+  {
+    name: "Oven-Mitt", quantity: 0, clickMultiplier: .1, cost: 5000, costAddition: 5000, unlocked: false, unlockNext: -1,
+    upgradeFormula: [
+      {
+        startQuantity: 5,
+        costPerItem: 10000,
+        cupcakePerClick: .2,
+      },
+      {
+        startQuantity: 15,
+        costPerItem: 20000,
+        cupcakePerClick: .3,
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 30000,
+        cupcakePerClick: .4,
+      },
+      {
+        startQuantity: 40,
+        costPerItem: 50000,
+        cupcakePerClick: .5,
+      },
+      {
+        startQuantity: 70,
+        costPerItem: 80000,
+        cupcakePerClick: .6,
+      },
+    ]
+  },
 ]
 
 let automaticUpgrades = [
-  {name: "Microwave", quantity: 0, clickCount: 1, cost: 20, costAddition: 20, unlocked: true,
-   upgradeFormula:[
-    {
-      startQuantity: 15,
-      costPerItem: 100,
-      cupcakePerClick: 5,
-    },
-    {
-      startQuantity: 30,
-      costPerItem: 500,
-      cupcakePerClick: 15,
-    },
-    {
-      startQuantity: 45,
-      costPerItem: 1500,
-      cupcakePerClick: 20,
-    },
-    {
-      startQuantity: 55,
-      costPerItem: 3000,
-      cupcakePerClick: 50,
-    },
-    {
-      startQuantity: 70,
-      costPerItem: 5000,
-      cupcakePerClick: 70,
-    },
-   ]},
-  {name: "Grandma", quantity: 0, clickCount: 15, cost: 300, costAddition: 300, unlocked: false, 
-  upgradeFormula: [
   {
-    startQuantity: 10,
-    costPerItem: 500,
-    cupcakePerClick: 5,
+    name: "Microwave", quantity: 0, clickCount: 1, cost: 20, costAddition: 20, unlocked: true, unlockNext: 6,
+    upgradeFormula: [
+      {
+        startQuantity: 15,
+        costPerItem: 100,
+        cupcakePerClick: 5,
+      },
+      {
+        startQuantity: 30,
+        costPerItem: 500,
+        cupcakePerClick: 15,
+      },
+      {
+        startQuantity: 45,
+        costPerItem: 1500,
+        cupcakePerClick: 20,
+      },
+      {
+        startQuantity: 55,
+        costPerItem: 3000,
+        cupcakePerClick: 50,
+      },
+      {
+        startQuantity: 70,
+        costPerItem: 5000,
+        cupcakePerClick: 70,
+      },
+    ]
   },
   {
-    startQuantity: 25,
-    costPerItem: 1500,
-    cupcakePerClick: 15,
+    name: "Grandma", quantity: 0, clickCount: 15, cost: 300, costAddition: 300, unlocked: false, unlockNext: 11,
+    upgradeFormula: [
+      {
+        startQuantity: 10,
+        costPerItem: 500,
+        cupcakePerClick: 5,
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 1500,
+        cupcakePerClick: 15,
+      },
+      {
+        startQuantity: 35,
+        costPerItem: 3000,
+        cupcakePerClick: 20,
+      },
+      {
+        startQuantity: 50,
+        costPerItem: 5000,
+        cupcakePerClick: 50,
+      },
+      {
+        startQuantity: 70,
+        costPerItem: 10000,
+        cupcakePerClick: 70,
+      },
+    ]
   },
   {
-    startQuantity: 35,
-    costPerItem: 3000,
-    cupcakePerClick: 20,
+    name: "Oven", quantity: 0, clickCount: 50, cost: 2000, costAddition: 2000, unlocked: false, unlockNext: 11,
+    upgradeFormula: [
+      {
+        startQuantity: 10,
+        costPerItem: 5000,
+        cupcakePerClick: 150,
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 8000,
+        cupcakePerClick: 350,
+      },
+      {
+        startQuantity: 40,
+        costPerItem: 12000,
+        cupcakePerClick: 600,
+      },
+      {
+        startQuantity: 60,
+        costPerItem: 15000,
+        cupcakePerClick: 900,
+      },
+      {
+        startQuantity: 75,
+        costPerItem: 20000,
+        cupcakePerClick: 1300,
+      },
+    ]
   },
   {
-    startQuantity: 50,
-    costPerItem: 5000,
-    cupcakePerClick: 50,
+    name: "Food-Truck", quantity: 0, clickCount: 1000, cost: 5000, costAddition: 5000, unlocked: false, unlockNext: 11,
+    upgradeFormula: [
+      {
+        startQuantity: 10,
+        costPerItem: 10000,
+        cupcakePerClick: 1500,
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 15000,
+        cupcakePerClick: 2000,
+      },
+      {
+        startQuantity: 40,
+        costPerItem: 20000,
+        cupcakePerClick: 4000,
+      },
+      {
+        startQuantity: 50,
+        costPerItem: 30000,
+        cupcakePerClick: 6000,
+      },
+      {
+        startQuantity: 65,
+        costPerItem: 45000,
+        cupcakePerClick: 10000,
+      },
+    ]
   },
   {
-    startQuantity: 70,
-    costPerItem: 10000,
-    cupcakePerClick: 70,
+    name: "Factory", quantity: 0, clickCount: 3000, cost: 10000, costAddition: 10000, unlocked: false, unlockNext: -1,
+    upgradeFormula: [
+      {
+        startQuantity: 10,
+        costPerItem: 20000,
+        cupcakePerClick: 5000,
+      },
+      {
+        startQuantity: 25,
+        costPerItem: 50000,
+        cupcakePerClick: 8000,
+      },
+      {
+        startQuantity: 40,
+        costPerItem: 100000,
+        cupcakePerClick: 10000,
+      },
+      {
+        startQuantity: 50,
+        costPerItem: 300000,
+        cupcakePerClick: 15000,
+      },
+      {
+        startQuantity: 60,
+        costPerItem: 800000,
+        cupcakePerClick: 20000,
+      },
+      {
+        startQuantity: 70,
+        costPerItem: 1500000,
+        cupcakePerClick: 30000,
+      },
+    ]
   },
-  ]},
-  {name: "Oven", quantity: 0, clickCount: 50, cost: 2000, costAddition: 2000, unlocked: false,
-  upgradeFormula: [
-    {
-      startQuantity: 10,
-      costPerItem: 5000,
-      cupcakePerClick: 150,
-    },
-    {
-      startQuantity: 25,
-      costPerItem: 8000,
-      cupcakePerClick: 350,
-    },
-    {
-      startQuantity: 40,
-      costPerItem: 12000,
-      cupcakePerClick: 600,
-    },
-    {
-      startQuantity: 60,
-      costPerItem: 15000,
-      cupcakePerClick: 900,
-    },
-    {
-      startQuantity: 75,
-      costPerItem: 20000,
-      cupcakePerClick: 1300,
-    },
-  ]},
-  {name: "Food Truck", quantity: 0, clickCount: 1000, cost: 5000, costAddition: 5000, unlocked: false,
-  upgradeFormula: [
-    {
-      startQuantity: 10,
-      costPerItem: 10000,
-      cupcakePerClick: 1500,
-    },
-    {
-      startQuantity: 25,
-      costPerItem: 15000,
-      cupcakePerClick: 2000,
-    },
-    {
-      startQuantity: 40,
-      costPerItem: 20000,
-      cupcakePerClick: 4000,
-    },
-    {
-      startQuantity: 50,
-      costPerItem: 30000,
-      cupcakePerClick: 6000,
-    },
-    {
-      startQuantity: 65,
-      costPerItem: 45000,
-      cupcakePerClick: 10000,
-    },
-  ]},
-  {name: "Factory", quantity: 0, clickCount: 3000, cost: 10000, costAddition: 10000, unlocked: false,
-  upgradeFormula: [
-    {
-      startQuantity: 10,
-      costPerItem: 20000,
-      cupcakePerClick: 5000,
-    },
-    {
-      startQuantity: 25,
-      costPerItem: 50000,
-      cupcakePerClick: 8000,
-    },
-    {
-      startQuantity: 40,
-      costPerItem: 100000,
-      cupcakePerClick: 10000,
-    },
-    {
-      startQuantity: 50,
-      costPerItem: 300000,
-      cupcakePerClick: 15000,
-    },
-    {
-      startQuantity: 60,
-      costPerItem: 800000,
-      cupcakePerClick: 20000,
-    },
-    {
-      startQuantity: 70,
-      costPerItem: 1500000,
-      cupcakePerClick: 30000,
-    },
-  ]},
 ]
 
 // SECTION element selectors
@@ -218,41 +232,13 @@ let cupcakePerClickElem = document.querySelector("#cupcakes-per-click")
 let cupcakesPerSecondElem = document.querySelector("#cupcake-per-second")
 // ANCHOR - element selectors for UPGRADES
 let handUpgrade = document.querySelector("#hand-upg")
-let ovenMittUpgrade = document.querySelector("#oven-mitt-upg")
-let microwaveUpgrade = document.querySelector("#microwave-upg")
-let grandmaUpgrade = document.querySelector("#grandma-upg")
-let ovenUpgrade = document.querySelector("#oven-upg")
-let foodTruckUpgrade = document.querySelector("#food-truck-upg")
-let factoryUpgrade = document.querySelector("#factory-upg")
-
-// SECTION - TOOL TIP ELEMENTS
-// STUB POINTER UPGRADE TIPS
-let handTip = document.querySelector("#hand-tip")
-let ovenMittTip = document.querySelector("#oven-mitt-tip")
-// STUB AUTO UPGRADE TIPS
-let microwaveTip = document.querySelector("#microwave-tip")
-let grandmaTip = document.querySelector("#grandma-tip")
-let ovenTip = document.querySelector("#oven-tip")
-let foodTruckTip = document.querySelector("#food-truck-tip")
-let factoryTip = document.querySelector("#factory-tip")
+let handObj = pointerUpgrades[0]
 
 // SECTION game mechanical variables
 let manualClicksMultiplier = 1
 let manualClicks = 1
 let automaticClicks = 0
 let automaticClicksMultiplier = 1
-// SECTION upgrade OBJECTS
-// STUB OBJECTS of pointer upgrades
-let handObj = pointerUpgrades.find(e => e.name == "Hand")
-let ovenMittObj = pointerUpgrades.find(e => e.name == "Oven Mitt")
-// STUB OBJECTS of automatic upgrades
-let microwaveObj = automaticUpgrades.find(e => e.name == "Microwave")
-let grandmaObj = automaticUpgrades.find(e => e.name == "Grandma")
-let ovenObj = automaticUpgrades.find(e => e.name == "Oven")
-let foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
-let factoryObj = automaticUpgrades.find(e => e.name == "Factory")
-
-
 // SECTION informational variables
 let totalClicks = 0
 let cupcakeBank = 0
@@ -275,13 +261,13 @@ const Toast = Swal.mixin({
 
 // SECTION functions
 // STUB VV clicking the cupcake
-function clickCupcake(){
+function clickCupcake() {
   totalClicks++
   cupcakeBank += manualClicks
   totalHandMadeCupcakes += manualClicks
   totalCupcakesMade += manualClicks
   updateInfo()
-  if(totalClicks == 200){
+  if (totalClicks == 200) {
     handUpgrade.removeAttribute("hidden")
     handObj.unlocked = true
     Toast.fire({
@@ -291,23 +277,28 @@ function clickCupcake(){
 }
 
 // STUB VV Buying an upgrade sets the new stats of that upgrade and then calls checkAutoAchievments
-function checkUpgrade(upgrade){
-  if(cupcakeBank >= upgrade.cost){
+function checkUpgrade(name) {
+
+  let upgrade = pointerUpgrades.find(e => e.name == name)
+  if (upgrade == undefined) {
+    upgrade = automaticUpgrades.find(e => e.name == name)
+  }
+
+  if (cupcakeBank >= upgrade.cost) {
     upgrade.quantity++
     cupcakeBank -= upgrade.cost
-    checkAchievments()
-    updateInfo()
-    if(upgrade.upgradeFormula.length > 0){
+    checkAchievments(name)
+    if (upgrade.upgradeFormula.length > 0) {
       let nextStat = upgrade.upgradeFormula[0]
-      if(upgrade.quantity == nextStat.startQuantity){
-        if(upgrade.clickCount != undefined){
+      if (upgrade.quantity == nextStat.startQuantity) {
+        if (upgrade.clickCount != undefined) {
           upgrade.clickCount = nextStat.cupcakePerClick
-        }else{
+        } else {
           upgrade.clickMultiplier = nextStat.cupcakePerClick
         }
         upgrade.costAddition = nextStat.costPerItem
         upgrade.upgradeFormula.splice(0, 1)
-        if(upgrade.upgradeFormula.length == 0){
+        if (upgrade.upgradeFormula.length == 0) {
           upgrade.upgradeFormula.push({
             startQuantity: 0,
             costPerItem: 0,
@@ -324,50 +315,29 @@ function checkUpgrade(upgrade){
 }
 
 // STUB VV checks whether or not the upgrades gets their hidden attribute removed
-function checkAchievments(){
-// STUB the check for the achievments
-  switch(true){
-    // STUB pointer upgrade checks
-    case handObj.quantity == 16:
-      ovenMittUpgrade.removeAttribute("hidden")
-      ovenMittObj.unlocked = true
+function checkAchievments(name) {
+  let index = pointerUpgrades.findIndex(e => e.name == name)
+  if (index == -1) {
+    index = automaticUpgrades.findIndex(e => e.name == name)
+    if (automaticUpgrades[index].unlockNext == automaticUpgrades[index].quantity) {
+      automaticUpgrades[index + 1].unlocked = true
       Toast.fire({
-        title: 'Unlocked OVEN MITT',
+        title: `Unlocked ${automaticUpgrades[index + 1].name}`,
       })
-      break
-    // STUB automatic upgrade checks
-    case microwaveObj.quantity == 6:
-      grandmaUpgrade.removeAttribute("hidden")
-      grandmaObj.unlocked = true
+      document.querySelector(`#${automaticUpgrades[index + 1].name.toLowerCase()}-upg`).removeAttribute("hidden")
+    }
+  } else {
+    if (pointerUpgrades[index].unlockNext == pointerUpgrades[index].quantity) {
+      pointerUpgrades[index + 1].unlocked = true
       Toast.fire({
-        title: 'Unlocked GRANDMA',
+        title: `Unlocked ${pointerUpgrades[index + 1].name}`,
       })
-      break
-    case grandmaObj.quantity == 11:
-      ovenUpgrade.removeAttribute("hidden")
-      ovenObj.unlocked = true
-      Toast.fire({
-        title: 'Unlocked OVEN',
-      })
-      break
-    case ovenObj.quantity == 11:
-      foodTruckUpgrade.removeAttribute("hidden")
-      foodTruckObj.unlocked = true
-      Toast.fire({
-        title: 'Unlocked FOOD TRUCK',
-      })
-      break
-    case foodTruckObj.quantity == 11:
-      factoryUpgrade.removeAttribute("hidden")
-      factoryObj.unlocked = true
-      Toast.fire({
-        title: 'Unlocked FACTORY',
-      })
-      break
+      document.querySelector(`#${pointerUpgrades[index + 1].name.toLowerCase()}-upg`).removeAttribute("hidden")
+    }
   }
 }
 
-function updateInfo(){
+function updateInfo() {
   cupcakePerClickElem.innerText = `Cupcakes per click: ${manualClicks}`
   cupcakesPerSecondElem.innerText = `CP/s: ${automaticClicks}`
   cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
@@ -377,33 +347,40 @@ function updateInfo(){
   totalClicksElem.innerText = `All time Cupcake clicks: ${totalClicks}`
 }
 
-function updateToolTips(){
-  handTip.innerText =`Name: ${handObj.name}\nOwn: ${handObj.quantity}\nCost: ${handObj.cost}\nDescription: Increases Cupcakes Per Click by (${handObj.clickCount})`
-  ovenMittTip.innerText = `Name: ${ovenMittObj.name}\nOwn: ${ovenMittObj.quantity}\nCost: ${ovenMittObj.cost}\nDescription: Increases Cupcakes Per Click by (${ovenMittObj.clickMultiplier}%)`
+function updateToolTips() {
+  pointerUpgrades.forEach(e => {
+    let eName = e.name.toLowerCase()
+    let upgradeToolTipElem = document.querySelector(`#${eName}-tip`)
+    if (e.clickMultiplier != undefined) {
+      upgradeToolTipElem.innerText = `Name: ${e.name}\nOwn: ${e.quantity}\nCost: ${e.cost}\nDescription: Increases Cupcakes Per Click by (${e.clickCount})`
+    } else {
+      upgradeToolTipElem.innerText = `Name: ${e.name}\nOwn: ${e.quantity}\nCost: ${e.cost}\nDescription: Increases Cupcakes Per Click by (${e.clickMultiplier})`
+    }
+  })
 
-  microwaveTip.innerText =`Name: ${microwaveObj.name}\nOwn: ${microwaveObj.quantity}\nCost: ${microwaveObj.cost}\nDescription: Increases Cupcakes Per Second by (${microwaveObj.clickCount})`
-  grandmaTip.innerText =`Name: ${grandmaObj.name}\nOwn: ${grandmaObj.quantity}\nCost: ${grandmaObj.cost}\nDescription: Increases Cupcakes Per Second by (${grandmaObj.clickCount})`
-  ovenTip.innerText =`Name: ${ovenObj.name}\nOwn: ${ovenObj.quantity}\nCost: ${ovenObj.cost}\nDescription: Increases Cupcakes Per Second by (${ovenObj.clickCount})`
-  foodTruckTip.innerText =`Name: ${foodTruckObj.name}\nOwn: ${foodTruckObj.quantity}\nCost: ${foodTruckObj.cost}\nDescription: Increases Cupcakes Per Second by (${foodTruckObj.clickCount})`
-  factoryTip.innerText =`Name: ${factoryObj.name}\nOwn: ${factoryObj.quantity}\nCost: ${factoryObj.cost}\nDescription: Increases Cupcakes Per Second by (${factoryObj.clickCount})`
+  automaticUpgrades.forEach(e => {
+    let eName = e.name.toLowerCase()
+    let upgradeToolTipElem = document.querySelector(`#${eName}-tip`)
+    upgradeToolTipElem.innerText = `Name: ${e.name}\nOwn: ${e.quantity}\nCost: ${e.cost}\nDescription: Increases Cupcakes Per Second by (${e.clickCount})`
+  })
 }
 
-function updateClicks(){
+function updateClicks() {
   let tempManualClicks = 1
   let tempManualMultiplier = 1
   let tempAutomaticClicks = 0
   let tempAutomaticMultiplier = 1
   pointerUpgrades.forEach(upgrade => {
-    if(upgrade.clickCount != undefined){
+    if (upgrade.clickCount != undefined) {
       tempManualClicks += upgrade.quantity * upgrade.clickCount
-    }else{
+    } else {
       tempManualMultiplier += upgrade.quantity * upgrade.clickMultiplier
     }
   })
   automaticUpgrades.forEach(upgrade => {
-    if(upgrade.clickCount != undefined){
+    if (upgrade.clickCount != undefined) {
       tempAutomaticClicks += upgrade.quantity * upgrade.clickCount
-    }else{
+    } else {
       tempAutomaticMultiplier += upgrade.quantity * upgrade.clickMultiplier
     }
   })
@@ -412,15 +389,15 @@ function updateClicks(){
   automaticClicks = Math.floor(tempAutomaticClicks * tempAutomaticMultiplier)
 }
 
-function autoClicks(){
+function autoClicks() {
   cupcakeBank += automaticClicks
   totalCupcakesMade += automaticClicks
   cupcakeBankElem.innerText = `Cupcakes in the bank: ${cupcakeBank}`
   totalCupcakesMadeElem.innerText = `All time cupcakes baked: ${totalCupcakesMade}`
 }
 
-function save(){
-  localStorage.setItem("manualUpgrades", JSON.stringify(pointerUpgrades))
+function save() {
+  localStorage.setItem("pointerUpgrades", JSON.stringify(pointerUpgrades))
   localStorage.setItem("automaticUpgrades", JSON.stringify(automaticUpgrades))
   localStorage.setItem("totalClicks", JSON.stringify(totalClicks))
   localStorage.setItem("cupcakeBank", JSON.stringify(cupcakeBank))
@@ -431,8 +408,8 @@ function save(){
   localStorage.setItem("manualClicks", JSON.stringify(manualClicks))
 }
 
-function load(){
-  pointerUpgrades = JSON.parse(localStorage.getItem("manualUpgrades"))
+function load() {
+  pointerUpgrades = JSON.parse(localStorage.getItem("pointerUpgrades"))
   automaticUpgrades = JSON.parse(localStorage.getItem("automaticUpgrades"))
   automaticClicks = JSON.parse(localStorage.getItem("automaticClicks"))
   manualClicks = JSON.parse(localStorage.getItem("manualClicks"))
@@ -440,32 +417,21 @@ function load(){
   cupcakeBank = JSON.parse(localStorage.getItem("cupcakeBank"))
   totalHandMadeCupcakes = JSON.parse(localStorage.getItem("totalHandMadeCupcakes"))
   totalCupcakesMade = JSON.parse(localStorage.getItem("totalCupcakesMade"))
-  handObj = pointerUpgrades.find(e => e.name == "Hand")
-  ovenMittObj = pointerUpgrades.find(e => e.name == "Oven Mitt")
-  microwaveObj = automaticUpgrades.find(e => e.name == "Microwave")
-  grandmaObj = automaticUpgrades.find(e => e.name == "Grandma")
-  ovenObj = automaticUpgrades.find(e => e.name == "Oven")
-  foodTruckObj = automaticUpgrades.find(e => e.name == "Food Truck")
-  factoryObj = automaticUpgrades.find(e => e.name == "Factory")
 
-  if(handObj.unlocked){
-    handUpgrade.removeAttribute("hidden")
-  }
-  if(ovenMittObj.unlocked){
-    ovenMittUpgrade.removeAttribute("hidden")
-  }
-  if(grandmaObj.unlocked){
-    grandmaUpgrade.removeAttribute("hidden")
-  }
-  if(ovenObj.unlocked){
-    ovenUpgrade.removeAttribute("hidden")
-  }
-  if(foodTruckObj.unlocked){
-    foodTruckUpgrade.removeAttribute("hidden")
-  }
-  if(factoryObj.unlocked){
-    factoryUpgrade.removeAttribute("hidden")
-  }
+  pointerUpgrades.forEach(e => {
+    if (e.unlocked) {
+      let eName = e.name.toLowerCase()
+      document.querySelector(`#${eName}-upg`).removeAttribute("hidden")
+    }
+  })
+  automaticUpgrades.forEach(e => {
+    if (e.unlocked) {
+      let eName = e.name.toLowerCase()
+      document.querySelector(`#${eName}-upg`).removeAttribute("hidden")
+    }
+  })
+  updateToolTips()
+  updateInfo()
 }
 
 setInterval(autoClicks, 1000)
@@ -473,35 +439,10 @@ setInterval(save, 300000)
 
 // SECTION EVENT LISTENERS
 cupcakeElem.addEventListener("click", clickCupcake)
-// STUB for the manual click upgrades
-handUpgrade.addEventListener("click", function(){ //STUB - HAND
-  checkUpgrade(handObj)
-})
-ovenMittUpgrade.addEventListener("click", function(){ // STUB - OVEN MITT
-  checkUpgrade(ovenMittObj)
-})
-// STUB for the automatic click upgrades
-microwaveUpgrade.addEventListener("click", function(){ // STUB - MICROWAVE
-  checkUpgrade(microwaveObj)
-})
-grandmaUpgrade.addEventListener("click", function(){ // STUB - GRANDMA
-  checkUpgrade(grandmaObj)
-})
-ovenUpgrade.addEventListener("click", function(){ // STUB - OVEN
-  checkUpgrade(ovenObj)
-})
-foodTruckUpgrade.addEventListener("click", function(){ // STUB - FOOD TRUCK
-  checkUpgrade(foodTruckObj)
-})
-factoryUpgrade.addEventListener("click", function(){ // STUB - FACTORY
-  checkUpgrade(factoryObj)
-})
 
-if(localStorage.length > 2){
+if (localStorage.length > 2) {
   load()
-  updateInfo()
-  updateToolTips()
-}else{
+} else {
   updateInfo()
   updateToolTips()
 }
