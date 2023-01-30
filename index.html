@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col12 text-center d-flex justify-content-center" id="header">
           <p>Cupcake Clicker</p>
-          <button onclick="save()">save</button>
+          <button onclick="save()" id="save-btn">save</button>
         </div>
       </div>
     </div>
@@ -39,43 +39,42 @@
           <div class="row">
             <div class="col-12 border-bottom border-dark d-flex" id="manual-upgrades">
 
-              <div class="handTip">
-                <img src="./Assets/clicker-upgrades/hand.svg" class="upgrade-img" draggable="false" id="hand-upg"hidden>
-                <span class="handTipText" id="hand-tip"></span>
+              <div class="Tip">
+                <button hidden id="hand-upg" onclick="checkUpgrade('Hand')"><img src="./Assets/clicker-upgrades/hand.svg" class="upgrade-img" draggable="false"></button>
+                <span class="TipText" id="hand-tip"></span>
               </div>
 
-              <div class="ovenMittTip">
-                <img src="./Assets/clicker-upgrades/yellow-mitt.svg" class="upgrade-img" draggable="false"
-                  id="oven-mitt-upg" hidden>
-                <span class="ovenMittTipText" id="oven-mitt-tip"></span>
+              <div class="Tip">
+                <button hidden id="oven-mitt-upg" onclick="checkUpgrade('Oven-Mitt')"><img src="./Assets/clicker-upgrades/yellow-mitt.svg" class="upgrade-img" draggable="false"></button>
+                <span class="TipText" id="oven-mitt-tip"></span>
               </div>
 
             </div>
             <div class="col-12 d-flex" id="automatic-upgrades">
 
-              <div class="microwaveTip">
-                <img src="./Assets/auto-upgrades/microwave.svg" class="upgrade-img" draggable="false" id="microwave-upg">
-                <span class="microwaveTipText" id="microwave-tip"></span>
+              <div class="Tip">
+                <button id="microwave-upg" onclick="checkUpgrade('Microwave')"><img src="./Assets/auto-upgrades/microwave.svg" class="upgrade-img" draggable="false" ></button>
+                <span class="TipText" id="microwave-tip"></span>
               </div>
 
-              <div class="granmaTip">
-                <img src="./Assets/auto-upgrades/grandma.svg" class="upgrade-img" draggable="false" id="grandma-upg" hidden>
-                <span class="granmaTipText" id="grandma-tip"></span>
+              <div class="Tip">
+                <button hidden id="grandma-upg" onclick="checkUpgrade('Grandma')"><img src="./Assets/auto-upgrades/grandma.svg" class="upgrade-img" draggable="false" ></button>
+                <span class="TipText" id="grandma-tip"></span>
               </div>
 
-              <div class="ovenTip">
-                <img src="./Assets/auto-upgrades/oven.svg" class="upgrade-img" draggable="false" id="oven-upg" hidden>
-                <span class="ovenTipText" id="oven-tip"></span>
+              <div class="Tip">
+                <button hidden id="oven-upg" onclick="checkUpgrade('Oven')"><img src="./Assets/auto-upgrades/oven.svg" class="upgrade-img" draggable="false" ></button>
+                <span class="TipText" id="oven-tip"></span>
               </div>
 
-              <div class="foodTruckTip">
-                <img src="./Assets/auto-upgrades/food-truck.svg" class="upgrade-img" draggable="false" id="food-truck-upg" hidden>
-                <span class="foodTruckTipText" id="food-truck-tip"></span>
+              <div class="Tip">
+                <button hidden id="food-truck-upg" onclick="checkUpgrade('Food-Truck')"><img src="./Assets/auto-upgrades/food-truck.svg" class="upgrade-img" draggable="false" ></button>
+                <span class="TipText" id="food-truck-tip"></span>
               </div>
 
-              <div class="factoryTip">
-                <img src="./Assets/auto-upgrades/factory.svg" class="upgrade-img" draggable="false" id="factory-upg" hidden>
-                <span class="factoryTipText" id="factory-tip"></span>
+              <div class="Tip">
+                <button hidden id="factory-upg" onclick="checkUpgrade('Factory')"><img src="./Assets/auto-upgrades/factory.svg" class="upgrade-img" draggable="false" ></button>
+                <span class="TipText" id="factory-tip"></span>
               </div>
 
             </div>

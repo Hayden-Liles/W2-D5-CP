@@ -1,6 +1,10 @@
 p{
   margin: 0;
 }
+button{
+  background-color: transparent;
+  border: none;
+}
 
 /* SECTION id selectors */
 #header{
@@ -28,6 +32,13 @@ p{
 #info-container{
   background: linear-gradient(90.11deg, #913692 0.09%, #c55ac7 44.66%, #7f4380 99.92%);
   height: 20vh;
+}
+
+#save-btn{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 5em;
 }
 
 /* SECTION Class Selectors */
@@ -116,22 +127,12 @@ p{
 
 
 
-.handTip .ovenMittTip
-.microwaveTip .granmaTip .ovenTip .foodTruckTip .factoryTip{
-  position: relative;
+.Tip{
   display: inline-block;
   opacity: 1;
 }
 
-/* STUB MANUAL */
-.handTip .handTipText,
-.ovenMittTip .ovenMittTipText,
-/* STUB AUTOMATIC */
-.microwaveTip .microwaveTipText,
-.granmaTip .granmaTipText,
-.ovenTip .ovenTipText,
-.foodTruckTip .foodTruckTipText,
-.factoryTip .factoryTipText{
+.Tip .TipText{
   visibility: hidden;
   width: auto;
   background-color: black;
@@ -139,18 +140,13 @@ p{
   padding: 1em;
   border-radius: 6px;
   position: absolute;
+  width: 450px;
   right: 25%;
   z-index: 2;
   opacity: 1;
 }
-/* STUB MANUAL */
-.handTip:hover .handTipText,
-.ovenMittTip:hover .ovenMittTipText,
-/* STUB AUTOMATIC */
-.microwaveTip:hover .microwaveTipText,
-.granmaTip:hover .granmaTipText,
-.ovenTip:hover .ovenTipText,
-.foodTruckTip:hover .foodTruckTipText,
-.factoryTip:hover .factoryTipText{
+
+
+.Tip:hover .TipText{
   visibility: visible;
 }

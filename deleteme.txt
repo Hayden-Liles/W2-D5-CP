@@ -1,49 +1,12 @@
-.mytip, .mytip2{
-  --bs-tooltip-zindex: 1080;
-  --bs-tooltip-max-width: 200px;
-  --bs-tooltip-padding-x: 0.5rem;
-  --bs-tooltip-padding-y: 0.25rem;
-  --bs-tooltip-margin: ;
-  --bs-tooltip-font-size: 0.875rem;
-  --bs-tooltip-color: var(--bs-body-bg);
-  --bs-tooltip-bg: var(--bs-emphasis-color);
-  --bs-tooltip-border-radius: var(--bs-border-radius);
-  --bs-tooltip-opacity: 0.9;
-  --bs-tooltip-arrow-width: 0.8rem;
-  --bs-tooltip-arrow-height: 0.4rem;
-  font-family: var(--bs-font-sans-serif);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: start;
-  text-shadow: none;
-  text-transform: none;
-  letter-spacing: normal;
-  word-break: normal;
-  white-space: normal;
-  word-spacing: normal;
-  line-break: auto;
-  font-size: var(--bs-tooltip-font-size);
-  word-wrap: break-word;
-  position: relative;
-  display: inline-block;
-  opacity: 1;
-}
+FIXING THE REPEATING CODE:
 
-.mytip .mytiptext, .mytip2 .mytiptext2{
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  top: 80px;
-  left: -200%;
-  z-index: 1;
-}
+1:) draw all elements
+  -if unlocked == false then add hidden attribute
+  -add individual tool tip
+    --Set the spans id to the name of the "upgrade" in lower case then + -tip
 
-.mytip:hover .mytiptext, .mytip2:hover .mytiptext2{
-  visibility: visible;
-}
+    function updateToolTips(){
+      pointerUpgrades.forEach(e => {
+        let upgradeToolTipElem = .document.querySelector("#${(e.name).toLowerCase() + '-tip')}")
+      })
+    }
